@@ -57,6 +57,30 @@ public class Menu {
 			System.out.println(NumCasuali);
 		}
 	}
+
+	// DADI 
+	public static void dadi(Scanner input, Random random){
+		System.out.println("Quante facce?");
+		int facce = input.nextInt();
+		
+		while(true) {
+			int dado1 = random.nextInt(facce) + 1;
+			int dado2 = random.nextInt(facce) + 1;
+			System.out.println("Dado1 = " + dado1 + " Dado2 = " + dado2);
+			
+			if (dado1 == dado2) {
+				System.out.println("HAI VINTO!!");
+				break;
+			}else {
+				System.out.println("perdente, se non vuoi piu giocare scrivi 'no' per uscire, oppure inserisci numero facce ");
+				String risposta = input.next().toLowerCase();
+				if(risposta.equals("no")) {
+					System.out.println("Hai scelto di uscire.");
+					break;
+				}
+			}	
+		}		
+	}
 	
 	
 	public static void main(String[] args) {
@@ -101,6 +125,7 @@ public class Menu {
 				case 'd':
 				case '3':
 					System.out.println("Hai scelto di giocare con i dadi: ");
+					dadi(input,random);
 				break;
 				
 				case 'q':
